@@ -52,7 +52,11 @@ public class ItemExchangeListener implements Listener {
 		Player player = e.getPlayer();
 		ItemStack itemStack = e.getItem();
 		// If a player using an interacting action
-		if (e.getAction() == LEFT_CLICK_BLOCK) {
+		
+		Material type = itemStack.getType();
+		boolean isAxe = type == Material.WOOD_AXE || type == Material.IRON_AXE || type == Material.GOLD_AXE || type == Material.DIAMOND_AXE;
+		
+		if ((e.getAction() == LEFT_CLICK_BLOCK && !isAxe) || (e.getAction() == RIGHT_CLICK_BLOCK && isAxe)) {
 			// If block is a possible exchange
 			if (ItemExchangePlugin.ACCEPTABLE_BLOCKS.contains(e.getClickedBlock().getType())) {
 				// If the block contains exchangeItems
