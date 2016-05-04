@@ -1,7 +1,8 @@
-name: ItemExchange
+name: ${project.name}
 main: com.untamedears.ItemExchange.ItemExchangePlugin
 author: gmlaxfanatic
-version: 1.0.0
+authors: [shadowjay1, BrianLandry, erocs, Maxopoly]
+version: ${project.version}
 depend: [NameLayer, Citadel]
 commands:
   iecreate:
