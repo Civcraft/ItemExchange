@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.bukkit.command.CommandSender;
+import org.bukkit.ChatColor;
 
 import com.untamedears.ItemExchange.command.commands.CreateCommand;
 import com.untamedears.ItemExchange.command.commands.HelpCommand;
@@ -70,9 +71,12 @@ public class CommandHandler {
 	}
 
 	private void displayCommandHelp(Command cmd, CommandSender sender) {
-		sender.sendMessage(new StringBuilder().append("§cCommand:§e ").append(cmd.getName()).toString());
-		sender.sendMessage(new StringBuilder().append("§cDescription:§e ").append(cmd.getDescription()).toString());
-		sender.sendMessage(new StringBuilder().append("§cUsage:§e ").append(cmd.getUsage()).toString());
+		sender.sendMessage(new StringBuilder().append(ChatColor.RED).append("Command: ")
+				.append(ChatColor.YELLOW).append(cmd.getName()).toString());
+		sender.sendMessage(new StringBuilder().append(ChatColor.RED).append("Description: ")
+				.append(ChatColor.YELLOW).append(cmd.getDescription()).toString());
+		sender.sendMessage(new StringBuilder().append(ChatColor.RED).append("Usage: ")
+				.append(ChatColor.YELLOW).append(cmd.getUsage()).toString());
 	}
 
 	private Command getCmdFromIdent(String ident, CommandSender executor) {

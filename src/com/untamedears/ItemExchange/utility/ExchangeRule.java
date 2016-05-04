@@ -49,10 +49,10 @@ import com.untamedears.ItemExchange.metadata.PotionMetadata;
 public class ExchangeRule {
 	private static final List<Material> NOT_SUPPORTED = Arrays.asList(Material.MAP, Material.WRITTEN_BOOK, Material.ENCHANTED_BOOK, Material.FIREWORK, Material.FIREWORK_CHARGE, Material.POTION);
 	
-	public static final String hiddenRuleSpacer = ChatColor.translateAlternateColorCodes('-',"-&-&-&-&-r");
-	public static final String hiddenCategorySpacer = ChatColor.translateAlternateColorCodes('-',"-&-&-&-r");
-	public static final String hiddenSecondarySpacer = ChatColor.translateAlternateColorCodes('-',"-&-&-r");
-	public static final String hiddenTertiarySpacer = ChatColor.translateAlternateColorCodes('-',"-&-r");
+	public static final String hiddenRuleSpacer = "-&-&-&-&-r".replace('-',ChatColor.COLOR_CHAR);
+	public static final String hiddenCategorySpacer = "-&-&-&-r".replace('-',ChatColor.COLOR_CHAR);
+	public static final String hiddenSecondarySpacer = "-&-&-r".replace('-',ChatColor.COLOR_CHAR);
+	public static final String hiddenTertiarySpacer = "-&-r".replace('-',ChatColor.COLOR_CHAR);
 	
 	public static final String ruleSpacer = "&&&&r";
 	public static final String categorySpacer = "&&&r";
@@ -306,12 +306,12 @@ public class ExchangeRule {
 	}
 
 	/*
-	 * Adds a � in front of every character in a string
+	 * Adds a {@link ChatColor.COLOR_CHAR} in front of every character in a string
 	 */
 	private static String hideString(String string) {
 		String hiddenString = "";
 		for (char character : string.toCharArray()) {
-			hiddenString += ChatColor.translateAlternateColorCodes('-',"-") + character;
+			hiddenString += ChatColor.COLOR_CHAR + character;
 		}
 		return hiddenString;
 	}
@@ -386,8 +386,6 @@ public class ExchangeRule {
 	public static ItemStack toBulkItemStack(Collection<ExchangeRule> rules) {
 		ItemStack itemStack = ItemExchangePlugin.ITEM_RULE_ITEMSTACK.clone();
 
-		String ruleSpacer = ChatColor.translateAlternateColorCodes('-',"-&-&-&-&-r");
-
 		ItemMeta itemMeta = itemStack.getItemMeta();
 		itemMeta.setDisplayName(ChatColor.DARK_RED + "Bulk Rule Block");
 		List<String> newLore = new ArrayList<String>();
@@ -400,7 +398,7 @@ public class ExchangeRule {
 			compiledRules.append(iterator.next().compileRule());
 
 			if(iterator.hasNext())
-				compiledRules.append(ruleSpacer);
+				compiledRules.append(hiddenRuleSpacer);
 		}
 
 		newLore.add("This rule block holds " + rules.size() + (rules.size() > 1 ? " exchange rules." : " exchange rule."));
@@ -491,7 +489,7 @@ public class ExchangeRule {
 		if(citadelGroup != null) {
 			compiledRule += hideString(escapeString(citadelGroup.getName()));
 		}
-		compiledRule += hiddenCategorySpacer + ChatColor.translateAlternateColorCodes('-',"-r");
+		compiledRule += hiddenCategorySpacer + ChatColor.RESET;
 		return compiledRule;
 	}
 
