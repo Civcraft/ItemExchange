@@ -26,8 +26,8 @@ A single exchange rule is either an input rule, defining items that the shop acc
 The stone button items that represent the exchange rules are created using the **/iecreate** (or **/iec**) command. There are three ways of doing this.
  
 - Look at a chest or dispenser containing two different types of items (it's okay if they're spread across multiple stacks), and use **/iec**. This will create an input rule matching the first item type and its quantity, and an output rule matching the second item type and its quantity. Both are placed inside the container, so this shop is immediately ready to be stocked and used.
-- Hold an item in your hand, then use **`/iec <input or output>`**. This will create an input or output rule matching the held item, and its quantity
-- Use **`/iec <input or output> <common name or ID:durability> [amount]`**. This will create an input or output rule for the specified item, and optionally the specified amount.
+- Hold an item in your hand, then use **`/iec <"input" or "output">`**. This will create an input or output rule matching the held item, and its quantity
+- Use **`/iec <"input" or "output"> <common name or ID:durability> [amount]`**. This will create an input or output rule for the specified item, and optionally the specified amount.
  
 For the second and third options, you need to make sure you have both an input and an output exchange rule, then place them in a suitable container to form an exchange. By adding more input and output rules, you can add more exchanges to your shop, but keep in mind how they are paired.
  
@@ -72,7 +72,7 @@ An existing exchange rule can be edited using the **/ieset** (or **/ies**) comma
 - **/ies displayname** (or **n**) **[<i>name</i>]** sets the display name of the item in the exchange rule. If used without a name, it only matches items with no display name. A display name is a name given to an item by an anvil.
 - **/ies lore** (or **l**) **[<i>lore</i>]** sets the lore of the item in the exchange rule. If used without any lore specified, it only matches items with no lore. Multiple lines of lore can be entered by placing semicolons (;) in place of line breaks.
 - **/ies switchio** (or **s**) toggles the exchange rule between input and output.
-- **/ies group** (or **g**) **[<i>group name</i>]** restricts an exchange to members of the specified Citadel group. If no group name is given, it removes the group restriction. This only works on input rules.
+- **/ies group** **[<i>group name</i>]** restricts an exchange to members of the specified Citadel group. If no group name is given, it removes the group restriction. This only works on input rules.
  
 The amount of an item specified in an exchange rule can also be increased or decreased by shift left clicking or shift right clicking on the exchange rule respectively.
  
